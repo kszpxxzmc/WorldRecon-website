@@ -1,0 +1,64 @@
+# Dependencies and generated builds (deploy dist via the build pipeline).
+node_modules/
+/dist/
+.vite/
+.cache/
+
+# Local render frames, intermediate images, and diagnostic output.
+/render-work/
+*.log
+*.tmp
+*.bak
+
+# Browser test artifacts.
+/test-results/
+/playwright-report/
+/blob-report/
+/coverage/
+
+# Python caches used by asset preparation scripts.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local credentials and environment overrides.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Editor and operating-system files.
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Legacy interactive meshes and decoders: current pages use rendered videos.
+/assets/scenes/*/*.glb
+/assets/draco/
+
+# Superseded orbit/demo outputs; retain orbit-hd.mp4 and worldrecon-method.mp4.
+/assets/scenes/*/orbit.mp4
+/assets/scenes/*/orbit-poster.png
+/assets/video/worldrecon-demo.mp4
+/assets/video/poster.webp
+/assets/video/chapters.vtt
+
+# Local provenance manifests may contain private absolute source paths.
+# Not needed by the website; asset-provenance tests require local regeneration.
+/assets/scenes/*/scene.json
+/assets/scenes/*/orbit-source.json
+/assets/scenes/*/orbit.json
+/assets/scenes/*/orbit-hd.json
+/assets/scenes/*/images.json
+/assets/scenes/*/inputs-32.json
+/assets/scenes/*/interior.json
+
+# Keep source code, package-lock.json, and published media tracked.
+# Do not globally ignore *.mp4, *.gif, *.webp, *.png, *.pdf, or *.json.

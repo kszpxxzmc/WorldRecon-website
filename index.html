@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="WorldRecon: Generative Multi-View Mesh Reconstruction for Large-Scale 3D World. Complete scene meshes with PBR materials from unposed RGB images." />
+    <title>WorldRecon | Generative Multi-View Mesh Reconstruction</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="preload" as="image" href="./teaser_refined.webp" />
+  </head>
+  <body>
+    <a class="skip-link" href="#abstract">Skip to abstract</a>
+    <main id="top">
+      <header class="publication-header container">
+        <h1><span class="project-name">WorldRecon</span>: Generative Multi-View<br />Mesh Reconstruction for Large-Scale 3D World</h1>
+        <p class="publication-authors" aria-label="Authors">
+          <!-- Add href to the remaining author anchors when their homepages are available. -->
+          <span class="author"><a href="https://kszpxxzmc.github.io" target="_blank" rel="noopener noreferrer">Mengchen Zhang</a><sup>1,2</sup></span>
+          <span class="author"><a href="https://yang-l1.github.io/" target="_blank" rel="noopener noreferrer">Yang Li</a><sup>2</sup></span>
+          <span class="author"><a href="https://chunshi.wang/" target="_blank" rel="noopener noreferrer">Chunshi Wang</a><sup>1,2</sup></span>
+          <span class="author"><a href="https://wutong16.github.io" target="_blank" rel="noopener noreferrer">Tong Wu</a><sup>3</sup></span>
+          <span class="author"><a href="http://dahua.site/" target="_blank" rel="noopener noreferrer">Dahua Lin</a><sup>4</sup></span>
+          <span class="author"><a target="_blank" rel="noopener noreferrer">Chunchao Guo</a><sup>2</sup></span>
+        </p>
+        <p class="publication-affiliations" aria-label="Author affiliations">
+          <span><sup>1</sup> Zhejiang University</span>
+          <span><sup>2</sup> Tencent</span>
+          <span><sup>3</sup> Fudan University</span>
+          <span><sup>4</sup> The Chinese University of Hong Kong</span>
+        </p>
+        <div class="publication-links">
+          <a class="publication-button" href="./WorldRecon.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Paper</a>
+          <a class="publication-button" href="#video"><i data-lucide="play"></i> Video</a>
+          <a class="publication-button" href="#results"><i data-lucide="images"></i> Results</a>
+          <button class="publication-button" disabled aria-label="Code and pretrained models: planned for release upon acceptance" title="Code and pretrained models will be released upon acceptance"><i data-lucide="code-2"></i> Code <span class="release-label">Coming soon</span></button>
+        </div>
+        <nav class="section-nav" aria-label="Page sections">
+          <a href="#overview">Overview</a>
+          <a href="#abstract">Abstract</a>
+          <a href="#method">Method</a>
+          <a href="#comparison">Results</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </header>
+
+      <section id="overview" class="teaser-section container" aria-label="WorldRecon overview">
+        <figure class="paper-figure teaser-figure">
+          <button class="figure-button" data-image="teaser_refined.webp" data-caption="WorldRecon reconstructs complete PBR scene meshes from real-world captures, synthetic images, and generated video frames." aria-label="Enlarge WorldRecon overview figure">
+            <img src="./teaser_refined.webp" width="2400" height="1382" alt="WorldRecon overview: real classroom captures, synthetic apartment views, and generated video frames become complete textured meshes with geometry, normals, depth, and relighting." fetchpriority="high" />
+            <span class="figure-zoom"><i data-lucide="maximize-2"></i></span>
+          </button>
+          <figcaption><strong>WorldRecon</strong> reconstructs complete, scene-scale meshes with PBR materials from <strong>unposed multi-view RGB images</strong>, generalizing across real-world captures, synthetic scenes, and generated videos.</figcaption>
+        </figure>
+
+      </section>
+
+      <section id="abstract" class="section abstract-section">
+        <div class="reading-container">
+          <h2>Abstract</h2>
+          <p>Reconstructing complete, high-quality meshes of large-scale scenes from unposed multi-view images requires faithful geometric grounding while plausibly completing surfaces that are unobserved or only sparsely captured. We present <strong>WorldRecon</strong>, a generative multi-view reconstruction framework for recovering complete, large-scale 3D scene meshes from unposed RGB images. WorldRecon uses a coarse, noisy global point cloud and camera poses estimated from the input images by a reconstruction model as a global scaffold for whole-scene generation and partitions it into overlapping spatial blocks. To robustly leverage these imperfect geometric priors, we equip the native 3D generative model TRELLIS.2 with a dedicated reconstruction-based conditioning architecture that generates each block from its local point-cloud crop and block-relevant image observations, producing sparse structure, detailed geometry, and PBR materials. To maintain scene-level coherence, we introduce neighbour-aware latent inpainting and a causal world-generation procedure that propagates structural, geometric, and material context across overlapping blocks. Together, these designs scale multi-view generative reconstruction to large-scale scenes, yielding coherent, unified meshes. Extensive experiments demonstrate that WorldRecon achieves state-of-the-art reconstruction performance, reducing Chamfer distance by 14.9% and 43.1% while improving F-score by 17.3% and 12.0% over the strongest baselines on synthetic and real-world indoor scenes, respectively, thereby demonstrating faithful and complete generative reconstruction as well as strong sim-to-real generalization.</p>
+        </div>
+      </section>
+
+      <section id="method" class="section container">
+        <h2>Method Overview</h2>
+        <p class="section-intro">WorldRecon reconstructs complete scene meshes from unposed multi-view RGB images.</p>
+        <figure class="paper-figure" aria-labelledby="block-generation-title">
+          <h3 id="block-generation-title" class="method-media-title">Reconstruction-Based Generation</h3>
+          <button class="figure-button" data-image="pipeline.webp" data-caption="Single-block generation: block-local observations condition cascaded sparse structure, geometry, and PBR material generation. Point-cloud tokens additionally condition the sparse structure stage." aria-label="Enlarge single-block generation diagram">
+            <img src="./pipeline.webp" width="2400" height="1226" alt="Single-block generation architecture: global point-cloud reconstruction and slicing prepare block-local inputs; image and camera tokens condition three cascaded flow models, with additional point-cloud conditioning for sparse structure." loading="lazy" />
+            <span class="figure-zoom"><i data-lucide="maximize-2"></i></span>
+          </button>
+          <figcaption><strong>Reconstruction-Based Generation.</strong> For each block, DINOv3 image tokens and Plucker-ray camera tokens are fused into fixed-length multi-view tokens, while a point-cloud encoder extracts geometric tokens. Three cascaded reconstruction-based flow models progressively generate the sparse structure, detailed geometry, and PBR materials, which are robust to noisy point clouds and inaccurate camera poses.</figcaption>
+        </figure>
+        <figure id="video" class="video-figure method-video" aria-labelledby="world-generation-title">
+          <h3 id="world-generation-title" class="method-media-title">World Generation Pipeline</h3>
+          <div class="video-panel">
+            <video id="demo-video" controls playsinline preload="metadata" width="1440" height="1080" poster="./video/method-poster.webp" aria-label="WorldRecon world generation pipeline: progressive reconstruction across overlapping blocks" aria-describedby="video-caption">
+              <source src="./video/worldrecon-method.mp4" type="video/mp4" />
+              <track kind="chapters" src="./video/method-chapters.vtt" srclang="en" label="Reconstruction stages" default />
+              <a href="./video/worldrecon-method.mp4" download>Download the world generation video</a>
+            </video>
+          </div>
+          <p id="video-error" class="video-error" role="status" hidden>Video playback is unavailable in this browser. <a href="./video/worldrecon-method.mp4" download>Download the MP4</a>.</p>
+          <nav class="video-chapters" aria-label="Video chapters">
+            <button type="button" data-video-time="0"><span>00:00</span> Our pipeline</button>
+            <button type="button" data-video-time="2.034"><span>00:02</span> Input images</button>
+            <button type="button" data-video-time="5"><span>00:05</span> Point cloud</button>
+            <button type="button" data-video-time="9"><span>00:09</span> Spatial blocks</button>
+            <button type="button" data-video-time="17"><span>00:17</span> Sparse structure</button>
+            <button type="button" data-video-time="26"><span>00:26</span> Textured meshes</button>
+          </nav>
+          <figcaption id="video-caption"><strong>World Generation Pipeline.</strong> Guided by a global point-cloud scaffold, WorldRecon completes sparse structure across overlapping blocks, then generates geometry and PBR materials in the same causal order. Neighbour-aware latent inpainting and overlap blending produce a coherent scene mesh.</figcaption>
+          <div class="video-details"><span>00:43 · 1440 × 1080 · 30 fps</span><a href="./video/worldrecon-method.mp4" download="WorldRecon-method.mp4"><i data-lucide="download"></i> Download video</a></div>
+        </figure>
+      </section>
+
+      <section id="comparison" class="section container">
+        <h2>Qualitative Comparison</h2>
+        <p class="section-intro">More complete surfaces and consistent geometry from the same visual observations.</p>
+        <figure class="paper-figure">
+          <button class="figure-button" data-image="comparison.webp" data-caption="Qualitative comparison with VGGT-Omega + TSDF, Murre, MonoSDF, FineRecon, and GenRecon, including interior and whole-scene geometry." aria-label="Enlarge qualitative comparisons">
+            <img src="./comparison.webp" width="2400" height="1464" alt="Qualitative comparison showing five baselines, WorldRecon, and ground truth across interior views and whole-scene reconstructions." loading="lazy" />
+            <span class="figure-zoom"><i data-lucide="maximize-2"></i></span>
+          </button>
+          <figcaption><strong>Comparison with baselines.</strong> WorldRecon produces more complete, geometrically consistent meshes with fewer fragmented artifacts across synthetic and real-world indoor scenes.</figcaption>
+        </figure>
+        <div class="comparison-toolbar">
+          <label class="baseline-select">Baseline
+            <select id="baseline">
+              <option value="gt">Ground Truth</option>
+              <option value="vggt">VGGT-Ω + TSDF</option>
+              <option value="murre">Murre</option>
+              <option value="monosdf">MonoSDF</option>
+              <option value="finerecon">FineRecon</option>
+              <option value="genrecon">GenRecon</option>
+              <option value="ours" selected>WorldRecon</option>
+            </select>
+          </label>
+        </div>
+        <div class="comparison-carousel">
+          <button id="previous-comparison-scene" class="icon-button comparison-scene-arrow" aria-label="Previous comparison scene" data-tooltip="Previous scene"><i data-lucide="chevron-left"></i></button>
+          <div id="comparison-panel" class="comparison-panel" tabindex="0" aria-label="Scene comparison carousel">
+            <div class="comparison-grid" id="comparison-grid"></div>
+            <p id="comparison-scene-position" class="comparison-scene-position" aria-live="polite">1 / 5</p>
+          </div>
+          <button id="next-comparison-scene" class="icon-button comparison-scene-arrow" aria-label="Next comparison scene" data-tooltip="Next scene"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </section>
+
+      <section id="evaluation" class="section evaluation-section">
+        <div class="container">
+          <h2>Quantitative Results</h2>
+          <p class="section-intro">Evaluation on 30 synthetic scenes from 3D-FRONT and 30 real-world scenes from ScanNet++.</p>
+          <div class="segmented" role="tablist" aria-label="Evaluation datasets">
+            <button id="tab-front" role="tab" data-dataset="front" aria-selected="true" aria-controls="benchmark-panel" tabindex="0">3D-FRONT</button>
+            <button id="tab-scannet" role="tab" data-dataset="scannet" aria-selected="false" aria-controls="benchmark-panel" tabindex="-1">ScanNet++</button>
+          </div>
+          <div id="benchmark-panel" role="tabpanel" aria-labelledby="tab-front">
+            <div class="table-scroll" role="region" aria-label="Reconstruction benchmark results" tabindex="0">
+              <table>
+                <caption class="sr-only" id="benchmark-caption">3D-FRONT: evaluation on 30 synthetic indoor scenes</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2">Method</th>
+                    <th scope="colgroup" colspan="3">3D Geometry</th>
+                    <th scope="colgroup" colspan="1">Coverage</th>
+                    <th scope="colgroup" colspan="4">Depth</th>
+                    <th scope="colgroup" colspan="3">Normal</th>
+                  </tr>
+                  <tr>
+                    <th scope="col" title="Chamfer Distance">CD ↓</th>
+                    <th scope="col">F-score ↑</th>
+                    <th scope="col" title="Normal Consistency">NC ↑</th>
+                    <th scope="col" title="Completeness">Complete. ↑</th>
+                    <th scope="col" title="Root Mean Square Error">RMSE ↓</th>
+                    <th scope="col" title="Absolute Relative Error">AbsRel ↓</th>
+                    <th scope="col">LPIPS ↓</th>
+                    <th scope="col">CLIP ↑</th>
+                    <th scope="col" title="Angular Error">Angular ↓</th>
+                    <th scope="col">LPIPS ↓</th>
+                    <th scope="col">CLIP ↑</th>
+                  </tr>
+                </thead>
+                <tbody id="benchmark-body"></tbody>
+              </table>
+            </div>
+            <div class="table-footnote"><span id="dataset-note">30 synthetic indoor scenes from 3D-FRONT.</span><span>Best in <strong>bold</strong>; second-best <u>underlined</u>.</span></div>
+          </div>
+          <p class="table-paper-link"><a href="./WorldRecon.pdf" target="_blank" rel="noopener">Full evaluation and additional metrics in the paper <i data-lucide="arrow-up-right"></i></a></p>
+        </div>
+      </section>
+
+      <section id="large-scale" class="section container">
+        <h2>Large-Scale Scene Reconstruction</h2>
+        <p class="section-intro">Causal world generation extends reconstruction to coherent, multi-room environments.</p>
+        <figure class="paper-figure">
+          <button class="figure-button" data-image="largescale.webp" data-caption="Large-scale multi-room reconstruction with a whole-scene view and detailed interior renderings." aria-label="Enlarge large-scale reconstruction">
+            <img src="./largescale.webp" width="2400" height="865" alt="Reconstructed multi-room apartment alongside detailed PBR and geometry views of the living room and bedroom." loading="lazy" />
+            <span class="figure-zoom"><i data-lucide="maximize-2"></i></span>
+          </button>
+          <!-- <figcaption><strong>Large-scale reconstruction.</strong> Overlapping blocks share structural, geometric, and material context, producing a unified multi-room mesh with detailed interior surfaces.</figcaption> -->
+        </figure>
+      </section>
+
+      <section id="agent-comparison" class="section container agent-comparison-section">
+        <h2>Comparison with Agentic Baseline</h2>
+        <p class="section-intro">Given the same 32 views, WorldRecon preserves scene layout and object detail more faithfully than the agent baseline.</p>
+        <figure class="paper-figure">
+          <button class="figure-button" data-image="agent.webp" data-caption="Comparison with Agentic Baseline. Given the same 32 views, we show Ground Truth, WorldRecon, and a GPT-6 Astra agent adapted from BVB, from left to right. The agent simplifies or omits objects and distorts the scene layout." aria-label="Enlarge agentic baseline comparison">
+            <img src="./agent.webp" width="2360" height="1712" alt="Two indoor scenes compared across Ground Truth, WorldRecon, and GPT-6 Astra Agent. WorldRecon reconstructions retain more scene structure and object detail than the agent outputs." loading="lazy" />
+            <span class="figure-zoom"><i data-lucide="maximize-2"></i></span>
+          </button>
+          <!-- <figcaption><strong>Comparison with Agentic Baseline.</strong> Given the same 32 views, each row shows Ground Truth, WorldRecon, and results from the GPT-6 Astra agent. WorldRecon yields more faithful reconstructions, while the agent simplifies or omits objects and distorts the scene layout.</figcaption> -->
+        </figure>
+      </section>
+
+      <section id="results" class="section results-section">
+        <div class="container">
+          <h2>Scene Reconstruction Results</h2>
+          <p class="section-intro">Complete scene meshes from synthetic images, real-world captures, and generated videos.</p>
+          <div class="scene-tabs" role="tablist" aria-label="Scene reconstruction domains">
+            <button role="tab" id="scene-tab-0" data-scene="0" aria-selected="true" aria-controls="scene-panel" tabindex="0">Synthetic scene</button>
+            <button role="tab" id="scene-tab-1" data-scene="1" aria-selected="false" aria-controls="scene-panel" tabindex="-1">Real-world capture</button>
+            <button role="tab" id="scene-tab-2" data-scene="2" aria-selected="false" aria-controls="scene-panel" tabindex="-1">Generated video</button>
+          </div>
+          <div id="scene-panel" class="scene-panel" role="tabpanel" aria-labelledby="scene-tab-0">
+            <div class="reconstruction-layout">
+              <div class="input-column">
+                <h3>Input Views</h3>
+                <button id="input-sequence" class="scene-image-button" aria-label="Enlarge 32 input views"><img id="input-animation" src="./scenes/synthetic/inputs-poster.webp" width="512" height="512" alt="Synthetic apartment: 32 reconstruction input views" loading="lazy" /></button>
+                <div class="sequence-controls"><span>32 views</span><button id="input-motion" class="icon-button" aria-label="Pause input sequence" aria-pressed="false" data-tooltip="Pause input sequence"><i data-lucide="pause"></i></button></div>
+              </div>
+              <div class="mesh-column">
+                <h3>Reconstructed Mesh</h3>
+                <div class="orbit-panel">
+                  <video id="scene-orbit" controls muted loop playsinline preload="none" width="2048" height="2048" poster="./scenes/synthetic/orbit-hd-poster.webp" aria-label="Synthetic apartment: fixed-radius 360-degree orbit"></video>
+                </div>
+                <p id="orbit-error" class="video-error" hidden>Orbit video unavailable. <a id="orbit-download" href="./scenes/synthetic/orbit-hd.mp4" download>Download video</a></p>
+              </div>
+              <div class="interior-column">
+                <h3>Interior Views</h3>
+                <div class="interior-grid">
+                  <figure><button class="scene-image-button" data-interior="geometry" aria-label="Enlarge interior geometry"><img src="./scenes/synthetic/interior/0-geometry.webp" width="512" height="512" alt="Selected interior geometry" loading="lazy" /></button><figcaption>Geometry</figcaption></figure>
+                  <figure><button class="scene-image-button" data-interior="normal" aria-label="Enlarge interior surface normals"><img src="./scenes/synthetic/interior/0-normal.webp" width="512" height="512" alt="Surface normals of reconstructed furniture and walls" loading="lazy" /></button><figcaption>Surface normals</figcaption></figure>
+                  <figure><button class="scene-image-button" data-interior="depth" aria-label="Enlarge interior depth"><img src="./scenes/synthetic/interior/0-depth.webp" width="512" height="512" alt="Depth map of the reconstructed indoor scene" loading="lazy" /></button><figcaption>Depth</figcaption></figure>
+                  <figure><button class="scene-image-button" data-interior="relighting" aria-label="Enlarge interior relighting"><img src="./scenes/synthetic/interior/0-relighting.webp" width="512" height="512" alt="Reconstructed PBR materials under changed lighting" loading="lazy" /></button><figcaption>Relighting</figcaption></figure>
+                </div>
+                <div class="sequence-controls interior-controls">
+                  <button id="interior-previous" class="icon-button" aria-label="Previous interior view" data-tooltip="Previous view"><i data-lucide="chevron-left"></i></button>
+                  <span id="interior-counter">View 1 / 4</span>
+                  <button id="interior-next" class="icon-button" aria-label="Next interior view" data-tooltip="Next view"><i data-lucide="chevron-right"></i></button>
+                  <button id="interior-motion" class="icon-button" aria-label="Pause interior sequence" aria-pressed="false" data-tooltip="Pause interior sequence"><i data-lucide="pause"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="scene-footer">
+              <button id="previous-scene" class="icon-button" aria-label="Previous scene" data-tooltip="Previous scene"><i data-lucide="chevron-left"></i></button>
+              <button id="next-scene" class="icon-button" aria-label="Next scene" data-tooltip="Next scene"><i data-lucide="chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="citation" class="section container">
+        <h2>Citation</h2>
+      </section>
+
+    </main>
+    <dialog id="image-dialog" aria-label="Expanded paper figure">
+      <div class="dialog-toolbar">
+        <span id="dialog-caption"></span>
+        <div class="dialog-actions">
+          <button class="icon-button" id="zoom-figure" aria-label="View image at actual size" aria-pressed="false" data-tooltip="Actual size"><i data-lucide="zoom-in"></i></button>
+          <a class="icon-button" id="download-figure" href="./highres/teaser_refined.webp" download aria-label="Download high-resolution figure" data-tooltip="Download original"><i data-lucide="download"></i></a>
+          <button class="icon-button" id="close-dialog" aria-label="Close figure" data-tooltip="Close"><i data-lucide="x"></i></button>
+        </div>
+      </div>
+      <div class="dialog-image-wrap"><img id="dialog-image" alt="" /></div>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

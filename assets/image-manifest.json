@@ -1,0 +1,758 @@
+{
+  "teaser_refined": {
+    "source": "paper/Figures/teaser_refined.png",
+    "size": [
+      7796,
+      4488
+    ],
+    "preview_size": [
+      2600,
+      1497
+    ],
+    "preview": "teaser_refined.webp",
+    "highres": "highres/teaser_refined.webp",
+    "highres_bytes": 2420774
+  },
+  "pipeline": {
+    "source": "paper/Figures/network.pdf",
+    "size": [
+      5000,
+      2554
+    ],
+    "preview_size": [
+      2400,
+      1226
+    ],
+    "preview": "pipeline.webp",
+    "highres": "highres/pipeline.webp",
+    "highres_bytes": 1271190
+  },
+  "largescale": {
+    "source": "paper/Figures/largescale.pdf",
+    "size": [
+      6000,
+      2161
+    ],
+    "preview_size": [
+      2400,
+      864
+    ],
+    "preview": "largescale.webp",
+    "highres": "highres/largescale.webp",
+    "highres_bytes": 794046
+  },
+  "comparison": {
+    "source": "paper/Figures/comparison.pdf",
+    "size": [
+      6300,
+      3842
+    ],
+    "preview_size": [
+      2400,
+      1464
+    ],
+    "preview": "comparison.webp",
+    "highres": "highres/comparison.webp",
+    "highres_bytes": 1716570
+  },
+  "ablation": {
+    "source": "paper/Figures/ablation.pdf",
+    "size": [
+      6000,
+      974
+    ],
+    "preview_size": [
+      2400,
+      390
+    ],
+    "preview": "ablation.webp",
+    "highres": "highres/ablation.webp",
+    "highres_bytes": 1087336
+  },
+  "scene-real": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image22.png",
+    "size": [
+      887,
+      627
+    ],
+    "preview_size": [
+      887,
+      627
+    ],
+    "preview": "scene-real.webp",
+    "highres": "highres/scene-real.webp",
+    "highres_bytes": 80284
+  },
+  "scene-video": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image31.png",
+    "size": [
+      861,
+      608
+    ],
+    "preview_size": [
+      861,
+      608
+    ],
+    "preview": "scene-video.webp",
+    "highres": "highres/scene-video.webp",
+    "highres_bytes": 58558
+  },
+  "input-real-1": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image17.png",
+    "size": [
+      1440,
+      1440
+    ],
+    "preview_size": [
+      1440,
+      1440
+    ],
+    "preview": "input-real-1.webp",
+    "highres": "highres/input-real-1.webp",
+    "highres_bytes": 160050
+  },
+  "input-real-2": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image18.png",
+    "size": [
+      1440,
+      1440
+    ],
+    "preview_size": [
+      1440,
+      1440
+    ],
+    "preview": "input-real-2.webp",
+    "highres": "highres/input-real-2.webp",
+    "highres_bytes": 255540
+  },
+  "input-video-1": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image27.png",
+    "size": [
+      663,
+      664
+    ],
+    "preview_size": [
+      663,
+      664
+    ],
+    "preview": "input-video-1.webp",
+    "highres": "highres/input-video-1.webp",
+    "highres_bytes": 59322
+  },
+  "input-video-2": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image28.png",
+    "size": [
+      649,
+      650
+    ],
+    "preview_size": [
+      649,
+      650
+    ],
+    "preview": "input-video-2.webp",
+    "highres": "highres/input-video-2.webp",
+    "highres_bytes": 62136
+  },
+  "output-geometry": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image36.png",
+    "size": [
+      512,
+      512
+    ],
+    "preview_size": [
+      512,
+      512
+    ],
+    "preview": "output-geometry.webp",
+    "highres": "highres/output-geometry.webp",
+    "highres_bytes": 9350
+  },
+  "output-normal": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image37.png",
+    "size": [
+      410,
+      410
+    ],
+    "preview_size": [
+      410,
+      410
+    ],
+    "preview": "output-normal.webp",
+    "highres": "highres/output-normal.webp",
+    "highres_bytes": 32066
+  },
+  "output-depth": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image38.png",
+    "size": [
+      819,
+      819
+    ],
+    "preview_size": [
+      819,
+      819
+    ],
+    "preview": "output-depth.webp",
+    "highres": "highres/output-depth.webp",
+    "highres_bytes": 15816
+  },
+  "output-relighting": {
+    "source": "paper/Figures/teaser_refined_v6_rgb2048.pptx#ppt/media/image39.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "preview_size": [
+      1024,
+      1024
+    ],
+    "preview": "output-relighting.webp",
+    "highres": "highres/output-relighting.webp",
+    "highres_bytes": 88096
+  },
+  "scene-large": {
+    "source": "paper/Figures/largescale.pptx#ppt/media/image7.png",
+    "size": [
+      3873,
+      1834
+    ],
+    "preview_size": [
+      2400,
+      1136
+    ],
+    "preview": "scene-large.webp",
+    "highres": "highres/scene-large.webp",
+    "highres_bytes": 526896
+  },
+  "input-large-1": {
+    "source": "paper/Figures/largescale.pptx#ppt/media/image1.png",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      2048,
+      2048
+    ],
+    "preview": "input-large-1.webp",
+    "highres": "highres/input-large-1.webp",
+    "highres_bytes": 198998
+  },
+  "input-large-2": {
+    "source": "paper/Figures/largescale.pptx#ppt/media/image2.png",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      2048,
+      2048
+    ],
+    "preview": "input-large-2.webp",
+    "highres": "highres/input-large-2.webp",
+    "highres_bytes": 176638
+  },
+  "compare-dining-vggt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=0",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-vggt.webp",
+    "highres": "highres/compare-dining-vggt.webp",
+    "highres_bytes": 412014
+  },
+  "compare-dining-finerecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=3",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-finerecon.webp",
+    "highres": "highres/compare-dining-finerecon.webp",
+    "highres_bytes": 108046
+  },
+  "compare-dining-genrecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=4",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-genrecon.webp",
+    "highres": "highres/compare-dining-genrecon.webp",
+    "highres_bytes": 115904
+  },
+  "compare-dining-ours": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=5",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-ours.webp",
+    "highres": "highres/compare-dining-ours.webp",
+    "highres_bytes": 127418
+  },
+  "compare-classroom-vggt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=0",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-vggt.webp",
+    "highres": "highres/compare-classroom-vggt.webp",
+    "highres_bytes": 493058
+  },
+  "compare-classroom-finerecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=3",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-finerecon.webp",
+    "highres": "highres/compare-classroom-finerecon.webp",
+    "highres_bytes": 111808
+  },
+  "compare-classroom-genrecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=4",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-genrecon.webp",
+    "highres": "highres/compare-classroom-genrecon.webp",
+    "highres_bytes": 173072
+  },
+  "compare-classroom-ours": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=5",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-ours.webp",
+    "highres": "highres/compare-classroom-ours.webp",
+    "highres_bytes": 157834
+  },
+  "compare-library-vggt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=0",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-vggt.webp",
+    "highres": "highres/compare-library-vggt.webp",
+    "highres_bytes": 386834
+  },
+  "compare-library-finerecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=3",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-finerecon.webp",
+    "highres": "highres/compare-library-finerecon.webp",
+    "highres_bytes": 147126
+  },
+  "compare-library-genrecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=4",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-genrecon.webp",
+    "highres": "highres/compare-library-genrecon.webp",
+    "highres_bytes": 182982
+  },
+  "compare-library-ours": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=5",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-ours.webp",
+    "highres": "highres/compare-library-ours.webp",
+    "highres_bytes": 140522
+  },
+  "compare-dining-murre": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=1",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-murre.webp",
+    "highres": "highres/compare-dining-murre.webp",
+    "highres_bytes": 243108
+  },
+  "compare-dining-monosdf": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=2",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-monosdf.webp",
+    "highres": "highres/compare-dining-monosdf.webp",
+    "highres_bytes": 78508
+  },
+  "compare-classroom-murre": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=1",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-murre.webp",
+    "highres": "highres/compare-classroom-murre.webp",
+    "highres_bytes": 383600
+  },
+  "compare-classroom-monosdf": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=2",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-monosdf.webp",
+    "highres": "highres/compare-classroom-monosdf.webp",
+    "highres_bytes": 92040
+  },
+  "compare-library-murre": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=1",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-murre.webp",
+    "highres": "highres/compare-library-murre.webp",
+    "highres_bytes": 286696
+  },
+  "compare-library-monosdf": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=2",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-monosdf.webp",
+    "highres": "highres/compare-library-monosdf.webp",
+    "highres_bytes": 83854
+  },
+  "compare-interior-4-vggt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=0",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-vggt.webp",
+    "highres": "highres/compare-interior-4-vggt.webp",
+    "highres_bytes": 197054
+  },
+  "compare-interior-4-murre": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=1",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-murre.webp",
+    "highres": "highres/compare-interior-4-murre.webp",
+    "highres_bytes": 119576
+  },
+  "compare-interior-4-monosdf": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=2",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-monosdf.webp",
+    "highres": "highres/compare-interior-4-monosdf.webp",
+    "highres_bytes": 86734
+  },
+  "compare-interior-4-finerecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=3",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-finerecon.webp",
+    "highres": "highres/compare-interior-4-finerecon.webp",
+    "highres_bytes": 104808
+  },
+  "compare-interior-4-genrecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=4",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-genrecon.webp",
+    "highres": "highres/compare-interior-4-genrecon.webp",
+    "highres_bytes": 160032
+  },
+  "compare-interior-4-ours": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=5",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-ours.webp",
+    "highres": "highres/compare-interior-4-ours.webp",
+    "highres_bytes": 125310
+  },
+  "compare-interior-5-vggt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=0",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-vggt.webp",
+    "highres": "highres/compare-interior-5-vggt.webp",
+    "highres_bytes": 229360
+  },
+  "compare-interior-5-murre": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=1",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-murre.webp",
+    "highres": "highres/compare-interior-5-murre.webp",
+    "highres_bytes": 155334
+  },
+  "compare-interior-5-monosdf": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=2",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-monosdf.webp",
+    "highres": "highres/compare-interior-5-monosdf.webp",
+    "highres_bytes": 54516
+  },
+  "compare-interior-5-finerecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=3",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-finerecon.webp",
+    "highres": "highres/compare-interior-5-finerecon.webp",
+    "highres_bytes": 68566
+  },
+  "compare-interior-5-genrecon": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=4",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-genrecon.webp",
+    "highres": "highres/compare-interior-5-genrecon.webp",
+    "highres_bytes": 117562
+  },
+  "compare-interior-5-ours": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=5",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-ours.webp",
+    "highres": "highres/compare-interior-5-ours.webp",
+    "highres_bytes": 101654
+  },
+  "compare-dining-gt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image15.png;column=6",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-dining-gt.webp",
+    "highres": "highres/compare-dining-gt.webp",
+    "highres_bytes": 116592
+  },
+  "compare-classroom-gt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image14.png;column=6",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-classroom-gt.webp",
+    "highres": "highres/compare-classroom-gt.webp",
+    "highres_bytes": 167710
+  },
+  "compare-library-gt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image13.png;column=6",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-library-gt.webp",
+    "highres": "highres/compare-library-gt.webp",
+    "highres_bytes": 211440
+  },
+  "compare-interior-4-gt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image16.png;column=6",
+    "size": [
+      2253,
+      2253
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-4-gt.webp",
+    "highres": "highres/compare-interior-4-gt.webp",
+    "highres_bytes": 124450
+  },
+  "compare-interior-5-gt": {
+    "source": "paper/Figures/comparison.pptx#ppt/media/image17.png;column=6",
+    "size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      1600,
+      1600
+    ],
+    "preview": "compare-interior-5-gt.webp",
+    "highres": "highres/compare-interior-5-gt.webp",
+    "highres_bytes": 107632
+  },
+  "agent": {
+    "source": "paper/Figures/agent.pptx#ppt/media/image1.png-image6.png",
+    "size": [
+      2360,
+      1152
+    ],
+    "preview_size": [
+      2360,
+      1152
+    ],
+    "preview": "agent.webp",
+    "highres": "highres/agent.webp",
+    "highres_bytes": 290496
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "source": "paper/supplementary/video_demo.mov",
+  "file": "video/worldrecon-method.mp4",
+  "poster": "video/method-poster.webp",
+  "width": 1440,
+  "height": 1080,
+  "fps": 30,
+  "source_start_seconds": 3.033333333333333,
+  "duration_seconds": 42.6,
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "processing": "Opening teaser removed at source keyframe 91 (3.033333 seconds); remaining streams copied into faststart MP4 without recompression.",
+  "bytes": 23749921
+}
