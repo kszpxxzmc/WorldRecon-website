@@ -113,7 +113,7 @@ export function initSceneResults() {
     document.querySelector('#orbit-download').href = asset(`scenes/${scene.id}/orbit-hd.mp4`);
     updateInput();
     grid.dataset.state = 'loading';
-    void showInterior(0);
+    if (entered) void showInterior(0);
     if (entered) load();
   }
   tabs.forEach((button, i) => {
@@ -151,6 +151,7 @@ export function initSceneResults() {
     else if (!entered) {
       entered = true;
       load();
+      void showInterior(0);
     } else play();
     updateInput();
     scheduleInterior();

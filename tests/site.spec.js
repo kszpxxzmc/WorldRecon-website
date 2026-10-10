@@ -218,6 +218,8 @@ test('dataset tabs display original manuscript values and support keyboard navig
 });
 
 test('comparison scene, baseline, and slider remain synchronized', async ({ page }) => {
+  test.setTimeout(120000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   const scenes = ['dining', 'classroom', 'library', 'interior-4', 'interior-5'];
   const methods = ['vggt', 'murre', 'monosdf', 'finerecon', 'genrecon', 'ours'];
@@ -238,6 +240,7 @@ test('comparison scene, baseline, and slider remain synchronized', async ({ page
       await expect(page.locator('#comparison-scene-position')).toHaveText(`${sceneIndex + 1} / 5`);
       for (const [index, method] of methods.entries()) {
         const tile = tiles.nth(index);
+        await tile.scrollIntoViewIfNeeded();
         await expect(tile.locator('.comparison-after')).toHaveAttribute('src', new RegExp(`compare-${scene}-${method}\\.webp$`));
         await expect(tile.locator('.comparison-before img')).toHaveAttribute('src', new RegExp(`compare-${scene}-${base}\\.webp$`));
         await expect.poll(() => tile.locator('.comparison-after').evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true);

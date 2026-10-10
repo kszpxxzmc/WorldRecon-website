@@ -2,8 +2,6 @@ import {
   createIcons, ArrowUpRight, FileText, ChevronLeft, ChevronRight,
   Images, Maximize2, MoveHorizontal, Code2, Download, X, Play, Pause, ZoomIn,
 } from 'lucide';
-import '@fontsource-variable/inter/wght.css';
-import './styles.css';
 import { initSceneResults } from './scene-results.js';
 
 createIcons({
