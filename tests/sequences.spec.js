@@ -90,6 +90,9 @@ for (const width of [1024, 1280, 1440, 1920]) {
       }));
     expect(Math.max(...centers) - Math.min(...centers)).toBeLessThan(1);
     const mesh = await page.locator('.orbit-panel').boundingBox();
+    const title = await page.locator('.mesh-column > h3').boundingBox();
+    // Keep column centers unchanged; move only the video into its top whitespace.
+    expect(Math.abs(mesh.y - (title.y + title.height + 18 - 24))).toBeLessThan(1);
     expect(mesh.width).toBeLessThanOrEqual(480);
     if (width >= 1280) expect(mesh.width).toBeGreaterThan(380);
     await page.locator('#results').screenshot({ path: `test-results/sequences-desktop-${width}.png` });

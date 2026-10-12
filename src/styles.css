@@ -96,7 +96,8 @@ figcaption { margin-top: 18px; font-size: 16px; line-height: 1.75; text-align: j
 #input-animation { aspect-ratio: 1; object-fit: contain; }
 .interior-grid .scene-image-button img { aspect-ratio: 1; object-fit: cover; }
 #interior-counter { min-width: 70px; text-align: center; font-variant-numeric: tabular-nums; }
-.orbit-panel { width: 100%; max-width: 480px; aspect-ratio: 1; margin-inline: auto; background: #f8f9fa; }
+.orbit-panel { position: relative; top: -24px; width: 100%; max-width: 480px; aspect-ratio: 1; margin-inline: auto; background: #f8f9fa; }
+.mesh-column > h3 { position: relative; z-index: 1; }
 #scene-orbit { display: block; width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 1199px) {
   .results-section > .container { width: calc(100% - 48px); }
