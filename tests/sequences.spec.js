@@ -83,9 +83,12 @@ for (const width of [1024, 1280, 1440, 1920]) {
       expect(bounds.x).toBeGreaterThanOrEqual(0);
       expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
     }
-    const headings = await page.locator('.reconstruction-layout h3').evaluateAll((elements) =>
-      elements.map((element) => element.getBoundingClientRect().y));
-    expect(Math.max(...headings) - Math.min(...headings)).toBeLessThan(1);
+    const centers = await page.locator('.reconstruction-layout > div').evaluateAll((elements) =>
+      elements.map((element) => {
+        const { y, height } = element.getBoundingClientRect();
+        return y + height / 2;
+      }));
+    expect(Math.max(...centers) - Math.min(...centers)).toBeLessThan(1);
     const mesh = await page.locator('.orbit-panel').boundingBox();
     expect(mesh.width).toBeLessThanOrEqual(480);
     if (width >= 1280) expect(mesh.width).toBeGreaterThan(380);
