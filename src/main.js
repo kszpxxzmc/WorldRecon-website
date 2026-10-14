@@ -1,19 +1,21 @@
 import {
   createIcons, ArrowUpRight, FileText, ChevronLeft, ChevronRight,
-  Images, Maximize2, MoveHorizontal, Code2, Download, X, Play, Pause, ZoomIn,
+  Images, Maximize2, MoveHorizontal, Code2, Download, X, Play, Pause, ZoomIn, Copy, Check,
 } from 'lucide';
 import { initSceneResults } from './scene-results.js';
+import { initCitation } from './citation.js';
 
 createIcons({
   icons: {
     ArrowUpRight, FileText, ChevronLeft, ChevronRight, Images,
-    Maximize2, MoveHorizontal, Code2, Download, X, Play, Pause, ZoomIn,
+    Maximize2, MoveHorizontal, Code2, Download, X, Play, Pause, ZoomIn, Copy, Check,
   },
 });
 
 const asset = (name) => `${import.meta.env.BASE_URL}${name}`;
 
 initSceneResults();
+initCitation();
 
 function wireTabs(selector, onChange) {
   const buttons = [...document.querySelectorAll(selector)];

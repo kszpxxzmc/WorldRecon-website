@@ -20,7 +20,8 @@ test('academic page loads without errors and all local assets exist', async ({ p
   expect(await page.locator('#large-scale').evaluate((element) => element.nextElementSibling.id)).toBe('agent-comparison');
   expect(await page.locator('#results').evaluate((element) => element.nextElementSibling.id)).toBe('citation');
   await expect(page.locator('#citation').locator('h2')).toHaveText('Citation');
-  await expect(page.locator('#citation').locator(':not(h2)')).toHaveCount(0);
+  await expect(page.locator('#citation-code')).toContainText('@misc{zhang2026worldrecon');
+  await expect(page.getByRole('button', { name: 'Copy citation', exact: true })).toBeVisible();
   await expect(page.locator('#benchmark-panel thead tr').first().locator('th')).toHaveText([
     'Method', '3D Geometry', 'Coverage', 'Depth', 'Normal',
   ]);
